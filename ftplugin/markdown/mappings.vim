@@ -1,8 +1,8 @@
 " Mappings for this plugin.
 if !hasmapto('<leader>t')
-	nmap <leader>t <Cmd>call typora#snippet_mode()<CR>
+	nmap <leader>t <Cmd>call marktext#snippet_mode()<CR>
 endif
 
 if !hasmapto('<leader>T')
-	nmap <leader>T <Cmd>call typora#table_mode()<CR>
+	nmap <leader>T <Cmd>call marktext#table_mode()<CR>
 endif

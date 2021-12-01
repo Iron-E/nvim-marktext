@@ -1,8 +1,8 @@
 # Introduction
 
-`nvim-typora` is a plugin that aims to provide improved functionality with [Typora](https://typora.io) and its enhanced markdown features.
+`nvim-marktext` is a plugin that aims to provide improved functionality with [Marktext](https://marktext.app) and its enhanced markdown features.
 
-It is not meant to replace existing markdown plugins, only enhance their functionality with specific additions for Typora.
+It is not meant to replace existing markdown plugins, only enhance their functionality with specific additions for Marktext.
 
 # Features
 
@@ -27,7 +27,7 @@ This plugin is still a work in progress. That said, it is in a good state for ot
 
 ## Demo
 
-This is a demo of most of the features. `TableMode` can do more than is shown, and there are more ways to access these features than through `:execute`-ing commands. Read the [docs](./doc/typora.txt) for more information.
+This is a demo of most of the features. `TableMode` can do more than is shown, and there are more ways to access these features than through `:execute`-ing commands. Read the [docs](./doc/marktext.txt) for more information.
 
 ![Demo](./media/2020_10_02.11_44_05.gif "Demo")
 
@@ -38,9 +38,9 @@ This is a demo of most of the features. `TableMode` can do more than is shown, a
 Requires the following:
 
 * Neovim 0.5+
-* [Typora](https://typora.io)
+* [Marktext](https://marktext.app)
 * [nvim-libmodal](https://github.com/Iron-E/nvim-libmodal)
-	* Snippet functionality with `:TyporaMode`.
+	* Snippet functionality with `:MarktextMode`.
 	* Table manipulation with `:TableMode`.
 
 __Optionally__ requires the following:
@@ -52,6 +52,6 @@ You can install it like any other plugin. Here is an example which uses `vim-plu
 
 ```viml
 Plug 'Iron-E/nvim-libmodal'
-Plug 'Iron-E/nvim-typora'
+Plug 'Iron-E/nvim-marktext'
 Plug 'plasticboy/vim-markdown'
 ```

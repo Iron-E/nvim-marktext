@@ -1,13 +1,13 @@
-" Open the typora editor
+" Open the marktext editor
 
-if !exists(':Typora')
-	command! -nargs=? -complete=file Typora silent call typora#open(<q-args>)
+if !exists(':Marktext')
+	command! -nargs=? -complete=file Marktext silent call marktext#open(<q-args>)
 endif
 
-if !exists(':TyporaMode')
-	command! TyporaMode call typora#snippet_mode()
+if !exists(':MarktextMode')
+	command! MarktextMode call marktext#snippet_mode()
 endif
 
 if !exists(':TableMode')
-	command! TableMode call typora#table_mode()
+	command! TableMode call marktext#table_mode()
 endif

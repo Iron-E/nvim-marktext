@@ -115,7 +115,7 @@ end
 	 * PUBLICIZE MODULE
 	 */
 --]]
-return function() libmodal.prompt.enter('TYPORA',
+return function() libmodal.prompt.enter('marktext',
 {
 	['classDiagram'] = _paste_mermaid{'classDiagram',
 		'\tAnimal <|-- Duck'
