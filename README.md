@@ -27,7 +27,7 @@ This plugin is still a work in progress. That said, it is in a good state for ot
 
 ## Demo
 
-This is a demo of most of the features. `TableMode` can do more than is shown, and there are more ways to access these features than through `:execute`-ing commands. Read the [docs](./doc/marktext.txt) for more information.
+This is a demo of most of the features. Read the [docs](./doc/marktext.txt) for more information.
 
 ![Demo](./media/2020_10_02.11_44_05.gif "Demo")
 
@@ -37,11 +37,10 @@ This is a demo of most of the features. `TableMode` can do more than is shown, a
 
 Requires the following:
 
-* Neovim 0.5+
+* Neovim 0.7+
 * [Marktext](https://marktext.app)
 * [nvim-libmodal](https://github.com/Iron-E/nvim-libmodal)
 	* Snippet functionality with `:MarktextMode`.
-	* Table manipulation with `:TableMode`.
 
 __Optionally__ requires the following:
 

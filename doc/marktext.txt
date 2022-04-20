@@ -7,13 +7,9 @@
 
 1. About ................ |marktext-about|
 2. Usage ................ |marktext-usage|
-3. Examples ............. |marktext-examples|
-4. Configuration ........ |marktext-configuration|
-5. License .............. |marktext-license|
-6. Bugs ................. |marktext-bugs|
-7. Contributing ......... |marktext-contributing|
-8. Changelog ............ |marktext-changelog|
-9. Credits .............. |marktext-credits|
+3. License .............. |marktext-license|
+4. Contributing ......... |marktext-contributing|
+5. Credits .............. |marktext-credits|
 
 ================================================================================
 1. About                                                          *marktext-about*
@@ -83,13 +79,6 @@ COMMANDS                                                 *marktext-usage-command
 
 	See |marktext-snippets| for more details.
 
-`:TableMode`                                                            *:TableMode*
-
-	Open a |libmodal-mode| which will provide convenient mappings for doing
-	complex operations on Markdown tables.
-
-	See |marktext#table_mode()| for more details.
-
 --------------------------------------------------------------------------------
 FUNCTIONS                                               *marktext-usage-functions*
 
@@ -138,45 +127,8 @@ FUNCTIONS                                               *marktext-usage-function
 		- |libmodal-prompt|, the command prompt implementation.
 		- |libmodal-lua-Prompt.enter()|, the command used to enter the prompt.
 
-                                                               *marktext-snippets*
-`marktext.table_mode()`                                      *marktext.table_mode()*
-`marktext#table_mode()`                                      *marktext#table_mode()*
-
-	Open a |libmodal-mode| which will provide convenient mappings for doing
-	complex operations on Markdown tables.
-
-	Below are the mappings and their functions:
-
-	Mapping       Function
-	------------  -------------------------------
-	`0`, `_`, `^`, `H`    Move to first column
-	`h`, <Left>     Move to previous column
-	`l`, <Right>    Move to next column
-	`$`, `L`          Move to last column
-	`i`             Insert column behind.
-	`a`             Insert column ahead.
-	`I`             Insert column at the beginning.
-	`A`             Insert column at the end.
-	`r`             Insert new row.
-	`s`             Sort the rows.
-	`u`             Undo
-	`<`, <S-Left>   Move column left.
-	`>`, <S-Right>  Move column right.
-	`{`             Move column to the beginning.
-	`}`             Move column to the end.
-
 ================================================================================
-3. Examples                                                    *marktext-examples*
-
-None right now.
-
-================================================================================
-4. Configuration                                          *marktext-configuration*
-
-None right now.
-
-================================================================================
-5. License                                                      *marktext-license*
+3. License                                                      *marktext-license*
 
 nvim-marktext — Bindings for Marktext's Markdown in Neovim
 Copyright © 2020 Iron-E
@@ -195,12 +147,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ================================================================================
-6. Bugs                                                            *marktext-bugs*
-
-None right now.
-
-================================================================================
-7. Contributing                                            *marktext-contributing*
+4. Contributing                                            *marktext-contributing*
 
 The following describes what should be done if an individual wishes to
 contribute something to the `Iron-E/nvim-libmodal` repository.
@@ -266,22 +213,7 @@ When submitting an issue, please describe the following:
 5. Attached media (screenshots, logs, etc.) (if applicable).
 
 ================================================================================
-8. Changelog                                                  *marktext-changelog*
-
-0.2.0 ~
-
-	Additions: ~
-	- |libmodal| bindings with `:TableMode`.
-	- Various bug fixes.
-
-0.1.0 ~
-
-	Additions: ~
-	- |libmodal| bindings with `:MarktextMode`
-	- Open Marktext from Neovim using `:Marktext`
-
-================================================================================
-9. Credits                                                      *marktext-credits*
+5. Credits                                                      *marktext-credits*
 
 Credit                        Reason
 ---------------------------   ----------------------------------------

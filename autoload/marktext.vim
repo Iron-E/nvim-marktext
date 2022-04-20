@@ -8,8 +8,3 @@ endfunction
 function! marktext#snippet_mode() abort
 	lua require('marktext').snippet_mode()
 endfunction
-
-" SUMMARY: Enter `table_mode` for appending, removing, or inserting columns in a table.
-function! marktext#table_mode() abort
-	lua require('marktext').table_mode()
-endfunction

@@ -4,15 +4,9 @@ local libmodal = require 'libmodal'
 
 --[[/* MODULE */]]
 
----------------------------
---[[ SUMMARY:
-	* Paste `lines` of text.
-]]
---[[ PARAMS:
-	* `lines` => the lines of text.
-]]
----------------------------
-local function _paste(text)
+--- `Paste` lines of text.
+--- @param text string|table the liens of text to paste.
+local function paste(text)
 	-- Add a space to the bottom of the snippet.
 	if type(text) == 'string' then
 		text = {text}
@@ -29,17 +23,10 @@ local function _paste(text)
 	libmodal.utils.api.mode_exit()
 end
 
------------------------------------------------------
---[[ SUMMARY:
-	* Create a table given a certain number of user input columns.
-]]
---[[ PARAMS:
-	* `language` => the language of the code block.
-	* `title` => the title of the code block.
-	* `template` => example code for the code block.
-]]
------------------------------------------------------
-local function _paste_code(language, template)
+--- `paste` a code block of a given language.
+--- @param language string the language of the code block.
+--- @param template string|table example code for the code block.
+local function paste_code(language, template)
 	if not language then
 		language = vim.fn.input '\nWhich language?\n> '
 	end
@@ -64,31 +51,17 @@ local function _paste_code(language, template)
 	-- Add the ending delimiter.
 	to_paste[#to_paste+1] = DELIMITER
 
-	_paste(to_paste)
+	paste(to_paste)
 end
 
------------------------------------------------
---[[ SUMMARY:
-	* Create a mermaid diagram.
-]]
---[[ PARAMS:
-	* `syntax` => what kind of mermaid diagram this is.
-	* `template` => a reminder of how to format this kind of diagram.
-]]
---[[ RETURNS:
-	* A function which can be called to create a mermaid template.
-]]
------------------------------------------------
-local function _paste_mermaid(template)
-	return function() _paste_code('mermaid', template) end
+--- @param template string|table a reminder of how to format this kind of diagram.
+--- @return function paste function which can be called to create a mermaid template.
+local function paste_mermaid_fn(template)
+	return function() paste_code('mermaid', template) end
 end
 
 
-----------------------------
---[[ SUMMARY:
-	* Create a table given a certain number of user input columns.
-]]
------------------------------
+--- Create a table given a certain number of user input columns.
 local function _paste_table()
 	-- Get the number of columns.
 	local columns = vim.fn.input '\nHow many columns?\n> '
@@ -101,7 +74,7 @@ local function _paste_table()
 	end
 
 	-- Paste the table.
-	_paste(table_text)
+	paste(table_text)
 
 	-- Format the just-pasted table.
 	-- This might have to be adjusted to =2
@@ -110,21 +83,17 @@ local function _paste_table()
 	end
 end
 
---[[
-	/*
-	 * PUBLICIZE MODULE
-	 */
---]]
+--[[/* PUBLICIZE MODULE */]]
 return function() libmodal.prompt.enter('marktext',
 {
-	['classDiagram'] = _paste_mermaid{'classDiagram',
+	['classDiagram'] = paste_mermaid_fn{'classDiagram',
 		'\tAnimal <|-- Duck'
 	},
-	['code'] = _paste_code,
-	['erDiagram'] = _paste_mermaid{'erDiagram',
+	['code'] = paste_code,
+	['erDiagram'] = paste_mermaid_fn{'erDiagram',
 		'\tFOO o|--|{ BAR : "example"'
 	},
-	['gantt'] = _paste_mermaid{'gantt',
+	['gantt'] = paste_mermaid_fn{'gantt',
 		'\ttitle Placeholder',
 		'\tdateFormat YYYY-MM-DD',
 		'\tsection NameHere',
@@ -134,27 +103,27 @@ return function() libmodal.prompt.enter('marktext',
 		'\t\tTask in sec      :2014-01-12, 12d',
 		'\t\tanother task     :24d',
 	},
-	['graph'] = _paste_mermaid{'graph LR',
+	['graph'] = paste_mermaid_fn{'graph LR',
 		'\tA --> B'
 	},
-	['latex'] = function() _paste{'$$', '', '$$'} end,
-	['pie'] = _paste_mermaid{'pie',
+	['latex'] = function() paste{'$$', '', '$$'} end,
+	['pie'] = paste_mermaid_fn{'pie',
 		'\ttitle Placeholder',
 		'\t"Cheese" : 42.96',
 		'\t"Dogs" : 50.05',
 		'\t"Apples" : 10.01',
 	},
-	['sequenceDiagram'] = _paste_mermaid{'sequenceDiagram',
+	['sequenceDiagram'] = paste_mermaid_fn{'sequenceDiagram',
 		'\tAlice->>John: Example text'
 	},
-	['journey'] = _paste_mermaid{'journey',
+	['journey'] = paste_mermaid_fn{'journey',
 		"\ttitle My day",
 		"\tsection Office",
 		"\t\tDo work: 1: Me, Cat",
 		"\tsection Home",
 		"\t\tSit down: 5: Me"
 	},
-	['stateDiagram'] = _paste_mermaid{'stateDiagram-v2',
+	['stateDiagram'] = paste_mermaid_fn{'stateDiagram-v2',
 		'\t[*] --> Still',
 		'\tStill --> Moving'
 	},
