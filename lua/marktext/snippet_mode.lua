@@ -62,7 +62,7 @@ end
 
 
 --- Create a table given a certain number of user input columns.
-local function _paste_table()
+local function paste_table()
 	-- Get the number of columns.
 	local columns = vim.fn.input '\nHow many columns?\n> '
 
@@ -86,14 +86,11 @@ end
 --[[/* PUBLICIZE MODULE */]]
 return function() libmodal.prompt.enter('marktext',
 {
-	['classDiagram'] = paste_mermaid_fn{'classDiagram',
-		'\tAnimal <|-- Duck'
-	},
+	['classDiagram'] = paste_mermaid_fn {'classDiagram', '\tAnimal <|-- Duck'},
 	['code'] = paste_code,
-	['erDiagram'] = paste_mermaid_fn{'erDiagram',
-		'\tFOO o|--|{ BAR : "example"'
-	},
-	['gantt'] = paste_mermaid_fn{'gantt',
+	['erDiagram'] = paste_mermaid_fn {'erDiagram', '\tFOO o|--|{ BAR : "example"'},
+	['gantt'] = paste_mermaid_fn {
+		'gantt',
 		'\ttitle Placeholder',
 		'\tdateFormat YYYY-MM-DD',
 		'\tsection NameHere',
@@ -103,29 +100,28 @@ return function() libmodal.prompt.enter('marktext',
 		'\t\tTask in sec      :2014-01-12, 12d',
 		'\t\tanother task     :24d',
 	},
-	['graph'] = paste_mermaid_fn{'graph LR',
-		'\tA --> B'
-	},
-	['latex'] = function() paste{'$$', '', '$$'} end,
-	['pie'] = paste_mermaid_fn{'pie',
+	['graph'] = paste_mermaid_fn {'graph LR', '\tA --> B'},
+	['latex'] = function() paste {'$$', '', '$$'} end,
+	['pie'] = paste_mermaid_fn {
+		'pie',
 		'\ttitle Placeholder',
 		'\t"Cheese" : 42.96',
 		'\t"Dogs" : 50.05',
 		'\t"Apples" : 10.01',
 	},
-	['sequenceDiagram'] = paste_mermaid_fn{'sequenceDiagram',
-		'\tAlice->>John: Example text'
-	},
-	['journey'] = paste_mermaid_fn{'journey',
+	['sequenceDiagram'] = paste_mermaid_fn {'sequenceDiagram', '\tAlice->>John: Example text'},
+	['journey'] = paste_mermaid_fn {
+		'journey',
 		"\ttitle My day",
 		"\tsection Office",
 		"\t\tDo work: 1: Me, Cat",
 		"\tsection Home",
 		"\t\tSit down: 5: Me"
 	},
-	['stateDiagram'] = paste_mermaid_fn{'stateDiagram-v2',
+	['stateDiagram'] = paste_mermaid_fn {
+		'stateDiagram-v2',
 		'\t[*] --> Still',
 		'\tStill --> Moving'
 	},
-	['table'] = _paste_table
+	['table'] = paste_table
 }) end
